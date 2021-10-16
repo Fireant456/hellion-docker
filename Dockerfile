@@ -41,11 +41,20 @@ RUN wineboot -u && winetricks -q dotnet452
 
 # Install SteamCMD
 RUN apt install -y lib32gcc1
-RUN mkdir /home/steamcmd && cd /home/steamcmd && wget https://steamcdn-a.akamaihd.net/client/installer/steamcmd_linux.tar.gz && tar xvf steamcmd_linux.tar.gz
+RUN mkdir /home/container/.steamcmd && cd /home/container/.steamcmd && wget https://steamcdn-a.akamaihd.net/client/installer/steamcmd_linux.tar.gz && tar xvf steamcmd_linux.tar.gz
 
 RUN chown -R container:container /home
+ENV DISPLAY=:0
+ENV DISPLAY_WIDTH=1024
+ENV DISPLAY_HEIGHT=768
+ENV DISPLAY_DEPTH=16
+ENV AUTO_UPDATE=1
+ENV XVFB=1
+
+COPY ./entrypoint.sh /home/entrypoint.sh
+RUN chown container:container /home/entrypoint.sh
+
 USER container
 WORKDIR	/home/container
 
-COPY ./entrypoint.sh /entrypoint.sh
-CMD	 ["/bin/bash", "/entrypoint.sh"]
+CMD	 ["/bin/bash", "/home/entrypoint.sh"]
