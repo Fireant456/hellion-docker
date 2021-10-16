@@ -4,7 +4,7 @@ on:
   schedule:
     - cron: "0 18 * * *" # everyday at 6pm
   push:
-    branches: ['main']
+    branches: ['master']
 
 jobs:
   push_to_registry:
