@@ -1,5 +1,10 @@
 # Hellion Docker Container
 
+[![Docker Pulls](https://img.shields.io/docker/pulls/fireant456/hellion-docker.svg)](https://hub.docker.com/r/fireant456/hellion-docker/)
+[![Docker Stars](https://img.shields.io/docker/stars/fireant456/hellion-docker.svg)](https://hub.docker.com/r/fireant456/hellion-docker/)
+[![Docker Build Status](https://img.shields.io/github/workflow/status/fireant456/hellion-docker/Publish%20Docker%20image)](https://github.com/Fireant456/hellion-docker/actions/workflows/DockerHub.yml)
+
+
 [Docker Hub](https://hub.docker.com/r/fireant456/hellion-wine-dotnet452)  
 [GitHub Repo](https://github.com/Fireant456/hellion-docker)
 
