@@ -2,7 +2,7 @@
 
 [![Docker Pulls](https://img.shields.io/docker/pulls/fireant456/hellion-wine-dotnet452.svg)](https://hub.docker.com/r/fireant456/hellion-wine-dotnet452/)
 [![Docker Stars](https://img.shields.io/docker/stars/fireant456/hellion-wine-dotnet452.svg)](https://hub.docker.com/r/fireant456/hellion-wine-dotnet452/)
-[![Docker Build Status](https://img.shields.io/github/workflow/status/fireant456/hellion-wine-dotnet452/Publish%20Docker%20image)](https://github.com/Fireant456/hellion-wine-dotnet452/actions/workflows/DockerHub.yml)
+[![Docker Build Status](https://img.shields.io/github/workflow/status/fireant456/hellion-docker/Publish%20Docker%20image)](https://github.com/Fireant456/hellion-docker/actions/workflows/DockerHub.yml)
 
 
 [Docker Hub](https://hub.docker.com/r/fireant456/hellion-wine-dotnet452)  
