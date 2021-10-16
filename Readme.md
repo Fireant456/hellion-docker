@@ -15,8 +15,8 @@ This container is built on the Ubuntu:20.04 LTS image with Wine and SteamCMD ins
 ## Configuration
 
 Set environment variables in order to set server name or ports at boot
-| Variable   | Purpose                                |
-|------------|----------------------------------------|
-| ServerName | Set Hellion Server Name                |
-| GamePort   | Set Game Server Port (Default: 6004)   |
-| StatusPort | Set Server Status Port (Default: 6005) |
+| Variable    | Purpose                                |
+|-------------|----------------------------------------|
+| ServerName  | Set Hellion Server Name                |
+| SERVER_PORT | Set Game Server Port (Default: 6004)   |
+| StatusPort  | Set Server Status Port (Default: 6005) |

@@ -8,8 +8,8 @@ mv GameServer_example.ini GameServer.ini
 if [ ! -z "$ServerName" ]; then
     sed -i "s/Hellion Game Server/${ServerName}/g" GameServer.ini
 fi
-if [ ! -z "$GamePort" ]; then
-    sed -i "s/6004/${GamePort}/g" GameServer.ini
+if [ ! -z "$SERVER_PORT" ]; then
+    sed -i "s/6004/${SERVER_PORT}/g" GameServer.ini
 fi
 if [ ! -z "$StatusPort" ]; then
     sed -i "s/6005/${StatusPort}/g" GameServer.ini
