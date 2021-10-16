@@ -1,5 +1,10 @@
 FROM ubuntu:20.04
 
+## add container user
+RUN useradd -m -d /home/container -s /bin/bash container
+RUN ln -s /home/container/ /nonexistent
+ENV USER=container HOME=/home/container
+
 # Install wget
 RUN apt-get update
 RUN apt-get install -y wget
@@ -19,7 +24,8 @@ RUN apt-get install -y winehq-devel winbind
 ENV WINEDEBUG=fixme-all
 
 # Setup a Wine prefix
-ENV WINEPREFIX=/root/.net 
+ENV HOME=/home/container
+ENV WINEPREFIX=/home/container/.wine
 ENV WINEARCH=win64
 RUN winecfg
 
@@ -36,12 +42,8 @@ RUN wineboot -u && winetricks -q dotnet452
 RUN apt install -y lib32gcc1
 RUN mkdir /home/steamcmd && cd /home/steamcmd && wget https://steamcdn-a.akamaihd.net/client/installer/steamcmd_linux.tar.gz && tar xvf steamcmd_linux.tar.gz
 
-ENV DISPLAY=:0
-ENV DISPLAY_WIDTH=1024
-ENV DISPLAY_HEIGHT=768
-ENV DISPLAY_DEPTH=16
-
-WORKDIR	/home/hellion
+USER container
+WORKDIR	/home/container
 
 COPY ./entrypoint.sh /entrypoint.sh
 CMD	 ["/bin/bash", "/entrypoint.sh"]

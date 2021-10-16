@@ -1,8 +1,8 @@
 #/bin/sh
 
-/home/steamcmd/steamcmd.sh +@sSteamCmdForcePlatformType windows +login anonymous +force_install_dir /home/hellion +app_update 598850 validate +quit
+/home/steamcmd/steamcmd.sh +@sSteamCmdForcePlatformType windows +login anonymous +force_install_dir /home/container +app_update 598850 validate +quit
 
-cd /home/hellion
+cd /home/container
 mv GameServer_example.ini GameServer.ini
 
 if [ ! -z "$ServerName" ]; then
