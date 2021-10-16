@@ -24,6 +24,7 @@ RUN apt-get install -y winehq-devel winbind
 ENV WINEDEBUG=fixme-all
 
 # Setup a Wine prefix
+RUN chown -R root:root /home/container
 ENV HOME=/home/container
 ENV WINEPREFIX=/home/container/.wine
 ENV WINEARCH=win64
@@ -42,6 +43,7 @@ RUN wineboot -u && winetricks -q dotnet452
 RUN apt install -y lib32gcc1
 RUN mkdir /home/steamcmd && cd /home/steamcmd && wget https://steamcdn-a.akamaihd.net/client/installer/steamcmd_linux.tar.gz && tar xvf steamcmd_linux.tar.gz
 
+RUN chown -R container:container /home
 USER container
 WORKDIR	/home/container
 
