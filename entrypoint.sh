@@ -1,6 +1,11 @@
 #/bin/sh
 
-/home/container/.steamcmd/steamcmd.sh +@sSteamCmdForcePlatformType windows +login anonymous +force_install_dir /home/container +app_update 598850 validate +quit
+whoami
+pwd
+ls -lah
+ls -lah steamcmd/
+
+/home/container/steamcmd/steamcmd.sh +@sSteamCmdForcePlatformType windows +login anonymous +force_install_dir /home/container +app_update 598850 validate +quit
 
 cd /home/container
 mv GameServer_example.ini GameServer.ini
