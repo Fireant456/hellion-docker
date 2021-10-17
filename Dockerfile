@@ -28,6 +28,12 @@ RUN chown -R root:root /home/container
 ENV HOME=/home/container
 ENV WINEPREFIX=/home/container/.wine
 ENV WINEARCH=win64
+ENV DISPLAY=:0
+ENV DISPLAY_WIDTH=1024
+ENV DISPLAY_HEIGHT=768
+ENV DISPLAY_DEPTH=16
+ENV AUTO_UPDATE=1
+ENV XVFB=1
 RUN winecfg
 
 # Install Winetricks
@@ -39,17 +45,8 @@ RUN cp winetricks /usr/local/bin
 # Install .NET Framework 4.5.2
 RUN wineboot -u && winetricks -q dotnet452
 
-# Install SteamCMD
+# Install SteamCMD dependency
 RUN apt install -y lib32gcc1
-RUN mkdir /home/container/steamcmd && wget -P /home/container/steamcmd https://steamcdn-a.akamaihd.net/client/installer/steamcmd_linux.tar.gz && tar xvf /home/container/steamcmd/steamcmd_linux.tar.gz -C /home/container/steamcmd
-
-RUN chown -R container:container /home
-ENV DISPLAY=:0
-ENV DISPLAY_WIDTH=1024
-ENV DISPLAY_HEIGHT=768
-ENV DISPLAY_DEPTH=16
-ENV AUTO_UPDATE=1
-ENV XVFB=1
 
 COPY ./entrypoint.sh /home/entrypoint.sh
 RUN chown container:container /home/entrypoint.sh
